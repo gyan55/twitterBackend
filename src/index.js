@@ -19,13 +19,14 @@ app.listen(3000, async () => {
     }) */
 
     const tweetrepo = new TweetRepository();
-    const tweet = await tweetrepo.create({
-        content: 'latest tweet brewing'
-    });
-    const comment = await Comment.create({content: 'new comment'});
-    tweet.comments.push(comment);
-    await tweet.save();  
+    const tweet = await tweetrepo.getAll(2,4);
+   // const tweet = await tweetrepo.create({
+   //     content: 'latest tweet brewing'
+    //});
+    //const comment = await Comment.create({content: 'new comment'});
+   // tweet.comments.push(comment);
+   // await tweet.save();  
 
 
-    console.log(tweet);
+    console.log(tweet[0].contentWithEmail);
 });
