@@ -29,14 +29,7 @@ class TweetRepository{
         }
     }
 
-    async update(tweetId,data){
-        try {
-            const tweet = await Tweet.findByIdAndUpdate(tweetId,data);
-            return tweet;
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    
     async getWithComments(id){
         try {
            const tweet = await Tweet.findById(id).populate({path:'comments'});
