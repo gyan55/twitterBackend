@@ -1,8 +1,13 @@
 import express from  'express';
 import {connect} from './config/database.js';
+import apiRoutes from '../src/routes/index.js';
+import bodyParser from 'body-parser';
 
 
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : true}));
+app.use('/api',apiRoutes);
 
 //const Tweet = require('./models/tweet');
 import {TweetRepository, HashtagRepository} from './repository/index.js';
@@ -32,10 +37,10 @@ app.listen(3000, async () => {
        // },      
     //])
     let service = new TweetService();
-    const tweet = service.create({
-        content : 'believe in  #process really #excited, #yeahhh this is going to be #lit'
-    });
-    console.log(tweet);
+    //const tweet = service.create({
+       //s content : 'believe in  #process really #excited, #yeahhh this is going to be #lit'
+   // });
+   // console.log(tweet);
 
    // const response = await repo.findByName(['excited','trend']);
     //console.log(response);
