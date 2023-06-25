@@ -1,15 +1,15 @@
-const express  =require('express');
-const connect = require('./config/database');
+import express from  'express';
+import {connect} from './config/database.js';
 
 
 const app = express();
 
-const Tweet = require('./models/tweet');
-const TweetRepository = require('./repository/tweet-repository');
-const Comment = require('./models/comment');
-const HashtagRepository  = require('./repository/hashtag-repository');
+//const Tweet = require('./models/tweet');
+import {TweetRepository, HashtagRepository} from './repository/index.js';
+//const Comment = require('./models/comment');
 
-const TweetService = require('./services/tweet-Service');
+
+import TweetService  from './services/tweet-Service.js';
 
 
 app.listen(3000, async () => {
@@ -33,7 +33,7 @@ app.listen(3000, async () => {
     //])
     let service = new TweetService();
     const tweet = service.create({
-        content : 'this is after #process really #excited, #yeahhh this is going to be #fun'
+        content : 'believe in  #process really #excited, #yeahhh this is going to be #lit'
     });
     console.log(tweet);
 
