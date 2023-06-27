@@ -16,6 +16,7 @@ import {TweetRepository, HashtagRepository,userRepository} from './repository/in
 
 import TweetService  from './services/tweet-Service.js';
 import LikeService from './services/like-service.js';
+import CommentService from './services/comment-service.js';
 
 
 app.listen(3000, async () => {
@@ -32,22 +33,16 @@ app.listen(3000, async () => {
     const tweetRepo = new TweetRepository();
     const tweets = await tweetRepo.getAll(0,10);
     const users = await userRepo.getAll();  
-   
-    const likeService = new LikeService();
-    await likeService.toggleLike(tweets[0].id,'Tweet',users[0].id);
-
-
-   // await repo.bulkCreate([
-       // {
-           // title:'excited',
-           //  tweets:[]
-       // },      
-    //])
+  
    /* let service = new TweetService();
     const tweet = service.create({
         content : 'believe in  #process really #excited, #yeahhh this is going to be #lit'
    });
    console.log(tweet); */
+
+  // let service = new CommentService();
+  // const comment = await service.create('64997fec68c43ad28feb8991','Tweet','64997bfa0ab8a5b775968f95','this is my first tweet');
+   
 
    // const response = await repo.findByName(['excited','trend']);
     //console.log(response);
