@@ -9,9 +9,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 app.use('/api',apiRoutes);
 
-//const Tweet = require('./models/tweet');
-import {TweetRepository, HashtagRepository,userRepository} from './repository/index.js';
-//const Comment = require('./models/comment');
 
 
 import TweetService  from './services/tweet-Service.js';
@@ -29,10 +26,7 @@ app.listen(3000, async () => {
         userEmail:'abc@gmail.com'
     }) */
 
-    const userRepo = new userRepository();
-    const tweetRepo = new TweetRepository();
-    const tweets = await tweetRepo.getAll(0,10);
-    const users = await userRepo.getAll();  
+
   
    /* let service = new TweetService();
     const tweet = service.create({
